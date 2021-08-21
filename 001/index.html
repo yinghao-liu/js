@@ -9,22 +9,22 @@
 </head>
 
 <body>
-    <form action="form1">
+    <form action="form1" onsubmit="return false">
         <input type="text" name="a" id="a">
         <input type="submit" value="form1">
     </form>
 
-    <form action="form2">
+    <form action="form2" onsubmit="returnFalse()">
         <input type="text" name="a" id="a">
-        <input type="submit" value="form2">
+        <input type="submit" value="form2-invalid">
     </form>
 
-    <form action="form3">
+    <form action="form3" onsubmit="return returnFalse()">
         <input type="text" name="a" id="a">
         <input type="submit" value="form3">
     </form>
 
-    <form action="form4">
+    <form action="form4" onsubmit="prevent(event)">
         <input type="text" name="a" id="a">
         <input type="submit" value="form4">
     </form>
@@ -35,6 +35,14 @@
     </form>
 
     <script>
+        function returnFalse(event) {
+            return false;
+        }
+
+        function prevent(event) {
+            event.preventDefault()
+            return true;
+        }
 
     </script>
 </body>
