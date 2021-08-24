@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form onsubmit="fileSubmitHandle(event)" id="fileSubmit">
+        <input type="file" id="fileInput">
+        <input type="submit" value="提交">
+    </form>
+
+    <script>
+        function fileSubmitHandle(event) {
+            event.preventDefault()
+            var fileInput = document.forms["fileSubmit"]["fileInput"]
+            var files = fileInput.files
+            console.log("lengthis: " + files.length);
+            for (let i = 0; i < files.length; i++) {
+                console.log("i is: " + i);
+                console.log(files[i].name);
+                console.log(files[i].size);
+                console.log(files[i].type);
+            }
+        }
+    </script>
+</body>
+
+</html>
